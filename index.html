@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        /* Header Styles */
+    .custom-header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 1400px;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 20px;
+        position: sticky;
+        gap: 30px;
+        background:#fff;
+    }
+    
+    /* Navigation Styles */
+    .custom-navigation {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin-left: 40px;
+        overflow: hidden;
+    }
+    
+    .custom-navigation li {
+        list-style: none;
+    }
+    
+    .custom-navigation li a {
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 800;
+        line-height: 18px;
+        letter-spacing: 3px;
+        color: black;
+    }
+    
+    /* Button Styles */
+    .custom-button {
+        display: flex;
+        gap: 20px;
+    }
+    
+    .button-1,
+    .button-2 {
+        color: black;
+        text-align: center;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        transform-style: preserve-3d;
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 48px;
+        padding: 15px 30px;
+        font-size: 12.3px;
+        font-weight: 800;
+        line-height: 18px;
+    }
+    
+    .button-1 {
+        border: 2.38px solid black;
+    }
+        
+    .button-2 {
+        color: white;
+        background-color: #4f64ff !important;
+    }
+    
+      .button-1:hover, .button-2:hover{
+        width: auto;
+        height: auto;
+        border-color: var(--accent--primary-1);
+        background-color: var(--accent--primary-1);
+        color: var(--neutral--100);
+        transform: translate3d(0, -3px, 0.01px);
+    }
+    
+    /* Logo Styles */
+    .custom-logo:hover {
+        border-color: var(--accent--primary-1);
+        background-color: var(--accent--primary-1);
+        color: var(--neutral--100);
+        transform: translate3d(0, -3px, 0.01px);
+    }
+    
+    /* Dropdown Icon Styles */
+    .dropdown-icon {
+        vertical-align: middle;
+        margin-left: -5px; /* Adjust the spacing between text and icon */
+        margin-top:-4px;
+        transition: transform 0.5s ease-in-out;
+    }
+            .custom-navigation li a:hover .dropdown-icon {
+        transform: rotate(180deg);
+    }
+                   .mobile-custom-navigation li a:hover .dropdown-icon {
+        transform: rotate(180deg);
+    }
+    /* Styles for the hamburger menu icon */
+    /* .custom-hamburger-menu {
+      display: flex;
+        flex-direction:column;
+        justify-content:flex-end;
+        align-items:flex-end;
+      width: 30px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+    } */
+    
+    .line {
+      width: 100%;
+      height: 2px;
+      background-color: #333;
+      position: absolute;
+      border-radius: 0;
+      transition: transform 0.3s ease;
+    }
+    
+    .line:nth-child(1) {
+      top: 0;
+    }
+    
+    .line:nth-child(2) {
+      top: 7px;
+      width: 70%; /* Adjust this width for the smaller line */
+    }
+    
+    /* To create the effect of a hamburger icon when active */
+    .custom-hamburger-menu.active .line:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    
+    .custom-hamburger-menu.active .line:nth-child(2) {
+      transform: translateY(-7px) rotate(-45deg);
+        width:100%;
+    }
+           /* Your CSS styles for screens between 400px and 600px width */
+           @media screen and (max-width: 2560px) and (min-width: 1440px) {
+        .custom-hamburger-menu{
+            display:none;
+        }
+                   .custom-header{
+            width:100%;
+            height:auto;
+        }
+               .mobile-header{
+            display:none;
+            transition: top 0.5s ease;
+        }
+               .mobile-custom-button{
+            display:none;
+        }
+    }
+    @media screen and (max-width: 1440px) and (min-width: 768px) {
+        .custom-hamburger-menu{
+            display:none;
+        }
+        .custom-header{
+            width:100%;
+            height:auto;
+        }
+        .mobile-header{
+            display:none;
+        }
+        .mobile-custom-button{
+            display:none;
+        }
+    }
+           @media screen and (max-width: 768px) and (min-width: 320px) {
+        /* Styles for the main header */
+        .custom-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: auto;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+        }
+    
+        /* Styles for the hamburger menu */
+        .custom-hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            cursor: pointer;
+            padding: 10px;
+            margin-top: 15px;
+        }
+    
+        /* Initial hide for main navigation */
+        .custom-navigation {
+            display: none;
+        }
+    
+        /* Initial hide for custom buttons */
+        .custom-button {
+            display: none;
+        }
+    
+        /* Styles for the main logo */
+        .custom-logo h3 a {
+            font-size: 22px;
+            letter-spacing: 8px;
+            text-transform: capitalize;
+        }
+    
+        /* Styles for the mobile header */
+        .mobile-header {
+            display:none;
+            
+        }
+    
+        /* Styles for the mobile navigation */
+        .mobile-custom-navigation {
+            display: none;
+            float: left;
+            overflow: hidden;
+            width: 100%;
+            height: auto;
+            margin: 10px;
+        }
+    
+    
+    .mobile-custom-navigation {
+        display: none;
+        float: left;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        margin: 10px 10px 10px 10px;
+    
+    }
+    
+    
+        /* List items in mobile navigation */
+        .mobile-custom-navigation li {
+            list-style: none;
+            margin-bottom: 10px;
+        }
+    
+        /* Links in mobile navigation */
+        .mobile-custom-navigation li a {
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 800;
+            line-height: 18px;
+            letter-spacing: 3px;
+            color: black;
+        }
+    
+        /* Styles for the mobile header division */
+        .mobile-header-div {
+            margin: 10px;
+        }
+    
+        /* Styles for the mobile custom buttons */
+        .mobile-custom-button {
+            display: none;
+            margin: 20px;
+        }
+    }  
+           @media screen and (max-width:320px){
+               a.button-2 {
+        font-size: 10px;
+    }
+               a.button-1{
+                   font-size:10px;
+               }
+    }
+    </style>
+    <body>
+        <header class="custom-header">
+            <div class="custom-logo">
+                <h3>
+                    <a href="/">webbee</a>
+                </h3>
+            </div>
+            <div class="custom-navigation">
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Services 
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M12 15.5l6-6-1.5-1.5L12 12.5 7.5 8 6 9.5l6 6z" fill="#4f64ff"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Pricing</a>
+                </li>
+                <li>
+                    <a href="#">Resources 
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M12 15.5l6-6-1.5-1.5L12 12.5 7.5 8 6 9.5l6 6z" fill="#4f64ff"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Company 
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M12 15.5l6-6-1.5-1.5L12 12.5 7.5 8 6 9.5l6 6z" fill="#4f64ff"/>
+                        </svg>
+                    </a>
+                </li>
+            </div>
+             
+            <div class="custom-button">
+                <a class="button-1" href="#">Login</a>
+                <a class="button-2" href="#">Contact</a>
+            </div>
+             <div class="custom-hamburger-menu">
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+     </header>
+        <header class="mobile-header">
+            <div class="mobile-header-div">
+                 <div class="mobile-custom-navigation">
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="#">Services 
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M12 15.5l6-6-1.5-1.5L12 12.5 7.5 8 6 9.5l6 6z" fill="#4f64ff"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Pricing</a>
+                </li>
+                <li>
+                    <a href="#">Resources 
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M12 15.5l6-6-1.5-1.5L12 12.5 7.5 8 6 9.5l6 6z" fill="#4f64ff"/>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">Company 
+                        <svg class="dropdown-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                            <path d="M12 15.5l6-6-1.5-1.5L12 12.5 7.5 8 6 9.5l6 6z" fill="#4f64ff"/>
+                        </svg>
+                    </a>
+                </li>
+            </div>
+           </div>
+             <div class="mobile-custom-button">
+                <a class="button-1" href="#">Login</a>
+                <a class="button-2" href="#">Contact</a>
+            </div>
+        </header>
+    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerMenu = document.querySelector('.custom-hamburger-menu');
+            const mobilehead = document.querySelector('.mobile-header');
+            const mobileNavigation = document.querySelector('.mobile-custom-navigation');
+            const mobilenavbuttons = document.querySelector('.mobile-custom-button');
+        
+            hamburgerMenu.addEventListener('click', function() {
+                hamburgerMenu.classList.toggle('active');
+        
+                if (mobileNavigation.style.display === "block") {
+                    mobileNavigation.style.display = "none";
+                    mobilenavbuttons.style.display = "none";
+                } else {
+                    mobileNavigation.style.display = "block";
+                    mobilenavbuttons.style.display = "block";
+                }
+        
+                mobilehead.style.display = (mobilehead.style.display === 'flex') ? 'none' : 'flex';
+                  if (mobilehead.style.display === 'flex') {
+                    mobilehead.style.flexDirection = 'column';
+                    mobilehead.style.justifyContent = 'flex-start';
+                    mobilehead.style.alignItems = 'flex-start';
+                    mobilehead.style.width = '100%';
+                    mobilehead.style.height = 'auto';
+                    mobilehead.style.marginLeft = 'auto';
+                    mobilehead.style.marginRight = 'auto';           
+                    mobilehead.style.transition = 'top 5s ease';
+                }
+            });
+        });
+            </script>
+</head>
