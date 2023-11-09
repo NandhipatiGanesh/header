@@ -1,282 +1,288 @@
 <!DOCTYPE html>
 <head>
     <style>
-        /* Header Styles */
+    	/* Header Styles */
+.custom-header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 1400px;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px;
+	position: sticky;
+	gap: 30px;
+	background:#fff;
+}
+
+/* Navigation Styles */
+.custom-navigation {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+	margin-left: 40px;
+	overflow: hidden;
+}
+
+.custom-navigation li {
+	list-style: none;
+}
+
+.custom-navigation li a {
+	text-transform: uppercase;
+	font-size: 12px;
+	font-weight: 800;
+	line-height: 18px;
+	letter-spacing: 3px;
+	color: black;
+}
+
+/* Button Styles */
+.custom-button {
+	display: flex;
+	gap: 20px;
+}
+
+.button-1,
+.button-2 {
+	color: black;
+	text-align: center;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	transform-style: preserve-3d;
+	background-color: rgba(0, 0, 0, 0);
+	border-radius: 48px;
+	padding: 15px 30px;
+	font-size: 12.3px;
+	font-weight: 800;
+	line-height: 18px;
+}
+
+.button-1 {
+	border: 2.38px solid black;
+}
+	
+.button-2 {
+	color: white;
+	background-color: #4f64ff !important;
+}
+
+  .button-1:hover, .button-2:hover{
+	width: auto;
+	height: auto;
+	border-color: var(--accent--primary-1);
+	background-color: var(--accent--primary-1);
+	color: var(--neutral--100);
+	transform: translate3d(0, -3px, 0.01px);
+}
+
+/* Logo Styles */
+.custom-logo:hover {
+	border-color: var(--accent--primary-1);
+	background-color: var(--accent--primary-1);
+	color: var(--neutral--100);
+	transform: translate3d(0, -3px, 0.01px);
+}
+
+/* Dropdown Icon Styles */
+.dropdown-icon {
+	vertical-align: middle;
+	margin-left: -5px; /* Adjust the spacing between text and icon */
+	margin-top:-4px;
+	transition: transform 0.5s ease-in-out;
+}
+		.custom-navigation li a:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+	   		.mobile-custom-navigation li a:hover .dropdown-icon {
+    transform: rotate(180deg);
+}
+/* Styles for the hamburger menu icon */
+/* .custom-hamburger-menu {
+  display: flex;
+	flex-direction:column;
+	justify-content:flex-end;
+	align-items:flex-end;
+  width: 30px;
+  height: 20px;
+  position: relative;
+  cursor: pointer;
+} */
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  position: absolute;
+  border-radius: 0;
+  transition: transform 0.3s ease;
+}
+
+.line:nth-child(1) {
+  top: 0;
+}
+
+.line:nth-child(2) {
+  top: 7px;
+  width: 70%; /* Adjust this width for the smaller line */
+}
+
+/* To create the effect of a hamburger icon when active */
+.custom-hamburger-menu.active .line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.custom-hamburger-menu.active .line:nth-child(2) {
+  transform: translateY(-7px) rotate(-45deg);
+	width:100%;
+}
+	   /* Your CSS styles for screens between 400px and 600px width */
+	   @media screen and (max-width: 2560px) and (min-width: 1440px) {
+	.custom-hamburger-menu{
+		display:none;
+	}
+		   	.custom-header{
+		width:100%;
+		height:auto;
+	}
+		   .mobile-header{
+		display:none;
+	    transition: top 0.5s ease;
+	}
+		   .mobile-custom-button{
+		display:none;
+	}
+}
+@media screen and (max-width: 1440px) and (min-width: 768px) {
+	.custom-hamburger-menu{
+		display:none;
+	}
+	.custom-header{
+		width:100%;
+		height:auto;
+	}
+	.mobile-header{
+		display:none;
+	}
+	.mobile-custom-button{
+		display:none;
+	}
+}
+	   @media screen and (max-width: 768px) and (min-width: 320px) {
+    /* Styles for the main header */
     .custom-header {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
-        width: 1400px;
+        width: 100%;
         height: auto;
         margin-left: auto;
         margin-right: auto;
-        padding: 20px;
-        position: sticky;
-        gap: 30px;
-        background:#fff;
+        padding: 10px;
     }
-    
-    /* Navigation Styles */
-    .custom-navigation {
+
+    /* Styles for the hamburger menu */
+    .custom-hamburger-menu {
         display: flex;
+        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        gap: 40px;
-        margin-left: 40px;
-        overflow: hidden;
+        align-items: flex-end;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        padding: 10px;
+        margin-top: 15px;
     }
-    
-    .custom-navigation li {
-        list-style: none;
+
+    /* Initial hide for main navigation */
+    .custom-navigation {
+        display: none;
     }
-    
-    .custom-navigation li a {
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 800;
-        line-height: 18px;
-        letter-spacing: 3px;
-        color: black;
-    }
-    
-    /* Button Styles */
+
+    /* Initial hide for custom buttons */
     .custom-button {
-        display: flex;
-        gap: 20px;
+        display: none;
     }
-    
-    .button-1,
-    .button-2 {
-        color: black;
-        text-align: center;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        transform-style: preserve-3d;
-        background-color: rgba(0, 0, 0, 0);
-        border-radius: 48px;
-        padding: 15px 30px;
-        font-size: 12.3px;
-        font-weight: 800;
-        line-height: 18px;
+
+    /* Styles for the main logo */
+    .custom-logo h3 a {
+        font-size: 22px;
+        letter-spacing: 8px;
+        text-transform: capitalize;
     }
-    
-    .button-1 {
-        border: 2.38px solid black;
+
+    /* Styles for the mobile header */
+    .mobile-header {
+        display:none;
+		
     }
-        
-    .button-2 {
-        color: white;
-        background-color: #4f64ff !important;
-    }
-    
-      .button-1:hover, .button-2:hover{
-        width: auto;
-        height: auto;
-        border-color: var(--accent--primary-1);
-        background-color: var(--accent--primary-1);
-        color: var(--neutral--100);
-        transform: translate3d(0, -3px, 0.01px);
-    }
-    
-    /* Logo Styles */
-    .custom-logo:hover {
-        border-color: var(--accent--primary-1);
-        background-color: var(--accent--primary-1);
-        color: var(--neutral--100);
-        transform: translate3d(0, -3px, 0.01px);
-    }
-    
-    /* Dropdown Icon Styles */
-    .dropdown-icon {
-        vertical-align: middle;
-        margin-left: -5px; /* Adjust the spacing between text and icon */
-        margin-top:-4px;
-        transition: transform 0.5s ease-in-out;
-    }
-            .custom-navigation li a:hover .dropdown-icon {
-        transform: rotate(180deg);
-    }
-                   .mobile-custom-navigation li a:hover .dropdown-icon {
-        transform: rotate(180deg);
-    }
-    /* Styles for the hamburger menu icon */
-    /* .custom-hamburger-menu {
-      display: flex;
-        flex-direction:column;
-        justify-content:flex-end;
-        align-items:flex-end;
-      width: 30px;
-      height: 20px;
-      position: relative;
-      cursor: pointer;
-    } */
-    
-    .line {
-      width: 100%;
-      height: 2px;
-      background-color: #333;
-      position: absolute;
-      border-radius: 0;
-      transition: transform 0.3s ease;
-    }
-    
-    .line:nth-child(1) {
-      top: 0;
-    }
-    
-    .line:nth-child(2) {
-      top: 7px;
-      width: 70%; /* Adjust this width for the smaller line */
-    }
-    
-    /* To create the effect of a hamburger icon when active */
-    .custom-hamburger-menu.active .line:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-    
-    .custom-hamburger-menu.active .line:nth-child(2) {
-      transform: translateY(-7px) rotate(-45deg);
-        width:100%;
-    }
-           /* Your CSS styles for screens between 400px and 600px width */
-           @media screen and (max-width: 2560px) and (min-width: 1440px) {
-        .custom-hamburger-menu{
-            display:none;
-        }
-                   .custom-header{
-            width:100%;
-            height:auto;
-        }
-               .mobile-header{
-            display:none;
-            transition: top 0.5s ease;
-        }
-               .mobile-custom-button{
-            display:none;
-        }
-    }
-    @media screen and (max-width: 1440px) and (min-width: 768px) {
-        .custom-hamburger-menu{
-            display:none;
-        }
-        .custom-header{
-            width:100%;
-            height:auto;
-        }
-        .mobile-header{
-            display:none;
-        }
-        .mobile-custom-button{
-            display:none;
-        }
-    }
-           @media screen and (max-width: 768px) and (min-width: 320px) {
-        /* Styles for the main header */
-        .custom-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            height: auto;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 10px;
-        }
-    
-        /* Styles for the hamburger menu */
-        .custom-hamburger-menu {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-            width: 30px;
-            height: 20px;
-            position: relative;
-            cursor: pointer;
-            padding: 10px;
-            margin-top: 15px;
-        }
-    
-        /* Initial hide for main navigation */
-        .custom-navigation {
-            display: none;
-        }
-    
-        /* Initial hide for custom buttons */
-        .custom-button {
-            display: none;
-        }
-    
-        /* Styles for the main logo */
-        .custom-logo h3 a {
-            font-size: 22px;
-            letter-spacing: 8px;
-            text-transform: capitalize;
-        }
-    
-        /* Styles for the mobile header */
-        .mobile-header {
-            display:none;
-            
-        }
-    
-        /* Styles for the mobile navigation */
-        .mobile-custom-navigation {
-            display: none;
-            float: left;
-            overflow: hidden;
-            width: 100%;
-            height: auto;
-            margin: 10px;
-        }
-    
-    
+
+    /* Styles for the mobile navigation */
     .mobile-custom-navigation {
         display: none;
         float: left;
         overflow: hidden;
         width: 100%;
         height: auto;
-        margin: 10px 10px 10px 10px;
-    
+        margin: 10px;
     }
-    
-    
-        /* List items in mobile navigation */
-        .mobile-custom-navigation li {
-            list-style: none;
-            margin-bottom: 10px;
-        }
-    
-        /* Links in mobile navigation */
-        .mobile-custom-navigation li a {
-            text-transform: uppercase;
-            font-size: 13px;
-            font-weight: 800;
-            line-height: 18px;
-            letter-spacing: 3px;
-            color: black;
-        }
-    
-        /* Styles for the mobile header division */
-        .mobile-header-div {
-            margin: 10px;
-        }
-    
-        /* Styles for the mobile custom buttons */
-        .mobile-custom-button {
-            display: none;
-            margin: 20px;
-        }
-    }  
-           @media screen and (max-width:320px){
-               a.button-2 {
-        font-size: 10px;
+
+
+.mobile-custom-navigation {
+    display: none;
+    float: left;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    margin: 10px 10px 10px 10px;
+
+}
+
+
+    /* List items in mobile navigation */
+    .mobile-custom-navigation li {
+        list-style: none;
+        margin-bottom: 10px;
     }
-               a.button-1{
-                   font-size:10px;
-               }
+
+    /* Links in mobile navigation */
+    .mobile-custom-navigation li a {
+        text-transform: uppercase;
+        font-size: 13px;
+        font-weight: 800;
+        line-height: 18px;
+        letter-spacing: 3px;
+        color: black;
     }
+
+    /* Styles for the mobile header division */
+    .mobile-header-div {
+        margin: 10px;
+    }
+
+    /* Styles for the mobile custom buttons */
+    .mobile-custom-button {
+        display: none;
+        margin: 20px;
+    }
+}  
+	   @media screen and (max-width:320px){
+		   a.button-2 {
+    font-size: 10px;
+}
+		   a.button-1{
+			   font-size:10px;
+		   }
+}
+a{
+	text-decoration:none;
+}
+.custom-logo h3 a{
+	text-transform:capitalize;
+}
     </style>
     <body>
         <header class="custom-header">
